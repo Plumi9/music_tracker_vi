@@ -21,9 +21,13 @@ client.on('presenceUpdate', (oldPresence, newPresence) => {
 	const activity = newPresence.activities.find(a => a.name === "Spotify");
 	if (!activity) return;
 
+	// shit doesnt work if multiple rich presence activities in newPresence Array
 	//let activity = newPresence.activities[1];
-	let songName = newPresence.activities[1]?.details;
-	let artist = newPresence.activities[1]?.state;
+	//let songName = newPresence.activities[1]?.details;
+	// let artist = newPresence.activities[1]?.state;
+
+	let songName = activity.details;
+	let artist = activity.state;
 
 	let userId = newPresence.userId;
 
